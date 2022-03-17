@@ -1,4 +1,5 @@
 import Products from "../models/produts"
+import slugify from "slugify"
 
 export const getAll = async (req, res)=> {
     try {
@@ -21,6 +22,7 @@ export const get = async (req, res)=> {
 }
 
 export const create = async (req,res)=>{
+    req.body.slug = slugify(req.body.name)
    try {
         const product = await new Products(req.body).save()
         res.json(product)
@@ -37,4 +39,13 @@ export const remove = async (req,res)=>{
    } catch (error) {
        
    }
+}
+
+export const update = async (req,res)=>{
+    try {
+        const newPd = await Products.findByIdAndUpdate({_id:req.params.id}, req.body,{new:true}).exec()
+        res.json(newPd)
+    } catch (error) {
+        
+    }
 }
