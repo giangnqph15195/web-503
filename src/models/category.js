@@ -3,6 +3,7 @@ import mongoose,{Schema} from "mongoose";
 const CategorySchema =  new Schema({
     name:{
         type:String,
+        trim:true,
         required:true
     },
     slug:{
@@ -12,4 +13,4 @@ const CategorySchema =  new Schema({
         index:true
     }
 }, { timestamps: true})
-export default mongoose.model("Catrgory", CategorySchema)
+export default mongoose.model("Category", CategorySchema)

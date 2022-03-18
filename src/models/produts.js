@@ -23,8 +23,8 @@ const productSchemna = mongoose.Schema({
         minLength:5
     },
     category:{
-        type:ObjectId,
-        ref:"category"
+        type: ObjectId,
+        ref:"Category"
     }
 }, {timestamps: true})
 export default mongoose.model("Product", productSchemna)
