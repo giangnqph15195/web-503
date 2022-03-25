@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const { getAll, get, create, remove, update } = require('../controler/product');
+const { requiredSingin, Auth } = require('../midawer/checkaut');
 
 const router = Router()
 
@@ -18,7 +19,7 @@ router.get("/", kiemtra , (req,res)=>{
 })
 router.get("/api/products",kiemtra, getAll)
 router.get("/api/products/:id", get)
-router.post("/api/product",kiemtra, create)
+router.post("/api/product",requiredSingin,Auth, create)
 router.delete("/api/product/:id", kiemtra, remove)
 router.put("/api/product/:id", kiemtra, update)
 

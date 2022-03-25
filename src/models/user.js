@@ -20,6 +20,9 @@ const UserSchema =  new Schema({
 }, {timestamps:true})
 
 UserSchema.methods={
+    authenticate(password){
+        return this.password == this.encryptPass(password)
+    },
     encryptPass(password){
         if(!password) return;
         try {
@@ -28,7 +31,11 @@ UserSchema.methods={
             
         }
     }
-} 
+}
+
+// UserSchema.methods={
+    
+// } 
 UserSchema.pre("save", async function save(next){
     try {
         this.password = this.encryptPass(this.password)

@@ -4,8 +4,8 @@ const { Signup, Signin } = require('../controler/user')
 
 const router = Router()
 
-router.get("/api/users", Signin)
-router.post("/api/user", Signup)
+router.post("/api/signin", Signin)
+router.post("/api/signup", Signup)
 
 
 module.exports = router
