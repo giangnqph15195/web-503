@@ -1,7 +1,7 @@
 import User from "../models/user";
 import jwt from 'jsonwebtoken'
 
-export const Signin = async (req,res) =>{
+export const signin = async (req,res) =>{
     try {
         const {email , password} = req.body
         const user = await User.findOne({email}).exec()
@@ -15,14 +15,14 @@ export const Signin = async (req,res) =>{
                 message: "Mat khau khong dung"
             })
         }
-        const token = jwt.sign({email}, '123456', {expiresIn: 60 * 60})
+        const token = jwt.sign({_id: user._id}, '123456', {expiresIn: 60 * 60})
         res.json({
             token,
             user: {
                 _id: user._id,
                 name:user.name,
-                email:user.email,
-                password:user.hash_pass
+                email:user.email, 
+                role:user.role
             }
         })
         
@@ -31,7 +31,7 @@ export const Signin = async (req,res) =>{
     }
 }
 
-export const Signup = async (req, res) =>{
+export const signup = async (req, res) =>{
     const {name, email , password} = req.body;
     try {
         const Check = await User.findOne({email}).exec()
