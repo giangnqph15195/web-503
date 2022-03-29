@@ -6,6 +6,10 @@ const CategorySchema =  new Schema({
         trim:true,
         required:true
     },
+    image:{
+        type: String,
+        required: true
+    },
     slug:{
         type:String,
         lowercase: true,

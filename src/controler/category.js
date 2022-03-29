@@ -3,9 +3,13 @@ import Category from "../models/category";
 import slugify from "slugify";
 import Products from "../models/produts"
 
-export const list = async (req, res) => {
+export const getall = async (req, res) => {
     const ListCate = await Category.find().exec()
     res.json(ListCate)
+}
+export const get = async (req, res) => {
+    const Cate = await Category.findOne({_id: req.params.id}).exec()
+    res.json(Cate)
 }
 
 export const add = async (req, res) => {
@@ -13,6 +17,15 @@ export const add = async (req, res) => {
    try {
     const AddCate = await new Category(req.body).save()
     res.json(AddCate)
+   } catch (error) {
+       
+   }
+}
+export const edit = async (req, res) => {
+    req.body.slug = slugify(req.body.name)
+   try {
+    const newCT = await Category.findByIdAndUpdate({_id:req.params.id}, req.body, {new:true})
+    res.json(newCT)
    } catch (error) {
        
    }
