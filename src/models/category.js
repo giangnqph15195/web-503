@@ -13,8 +13,7 @@ const CategorySchema =  new Schema({
     slug:{
         type:String,
         lowercase: true,
-        unique:true,
-        index:true
+        unique:true
     }
 }, { timestamps: true})
 export default mongoose.model("Category", CategorySchema)

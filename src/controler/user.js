@@ -54,3 +54,8 @@ export const signup = async (req, res) =>{
         
     }
 }
+
+export const list = async (req, res) =>{
+    const user = await User.find().exec()
+    res.json(user)
+}

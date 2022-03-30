@@ -35,11 +35,18 @@ export const edit = async (req, res) => {
 export const read = async (req, res) => {
     try {
         const category = await Category.findOne({slug: req.params.slug}).exec()
+        console.log(category)
         const products = await Products.find({category: category}).populate('category').select('-category').exec() 
         res.json({
-            category,products
+            category
+            ,products
         })
     } catch (error) {
         
     }
+}
+
+export const removect = async (req, res) => {
+    const RemoveCT = await Category.findOneAndDelete({_id:req.params.id}).exec()
+    res.json(RemoveCT)
 }

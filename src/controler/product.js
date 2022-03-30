@@ -43,7 +43,7 @@ export const remove = async (req,res)=>{
 
 export const update = async (req,res)=>{
     try {
-        const newPd = await Products.findByIdAndUpdate({_id:req.params.id}, req.body,{new:true}).exec()
+        const newPd = await Products.findOneAndUpdate({_id:req.params.id}, req.body,{new:true}).exec()
         res.json(newPd)
     } catch (error) {
         

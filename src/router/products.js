@@ -15,12 +15,12 @@ const kiemtra = (req, res, next) => {
  }
 }
 
-router.get("/", kiemtra , (req,res)=>{
-    res.send("<h1>Home Page</h1>")
-})
+// router.get("/", kiemtra , (req,res)=>{
+//     res.send("<h1>Home Page</h1>")
+// })
 router.get("/api/products",kiemtra, getAll)
 router.get("/api/products/:id", get)
-router.post("/api/products/:userId",requireSignin,Auth, create)
+router.post("/api/products", create)
 router.delete("/api/products/:id", kiemtra, remove)
 router.put("/api/products/:id", kiemtra, update)
 
