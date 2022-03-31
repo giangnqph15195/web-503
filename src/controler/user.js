@@ -54,8 +54,55 @@ export const signup = async (req, res) =>{
         
     }
 }
+export const adduser = async (req, res) =>{
+    const {name, email , password, role} = req.body;
+    try {
+        const Check = await User.findOne({email}).exec()
+        if(Check){
+            res.json({
+                message: "Email da ton tai"
+            })
+        }else{
+            const user = await new User({name, email, password, role}).save()
+            res.json({
+                user: {
+                    _id: user._id,
+                    name:user.name,
+                    email:user.email,
+                    role:user.role
+                }
+            })
+        }
+    } catch (error) {
+        
+    }
+}
 
 export const list = async (req, res) =>{
     const user = await User.find().exec()
     res.json(user)
+}
+export const editer = async (req, res) =>{
+    try {
+        const user = await User.findOneAndUpdate({_id:req.params.id}, req.body, {new:true}).exec()
+        res.json(user)
+    } catch (error) {
+        
+    }
+}
+export const removeuser = async (req,res) => {
+    try {
+        const remove = await User.findOneAndDelete({_id:req.params.id}).exec()
+        res.json(remove)
+    } catch (error) {
+        
+    }
+}
+export const findone = async (req,res) => {
+    try {
+        const getone = await User.findOne({_id:req.params.id}).exec()
+        res.json(getone)
+    } catch (error) {
+        
+    }
 }
