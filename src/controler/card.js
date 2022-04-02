@@ -8,3 +8,21 @@ export const listcard = async (req, res) => {
         
     }
 }
+
+export const addcard = async (req,res) => {
+    try {
+        const Addcard = await new Card(req.body).save()
+        res.json(Addcard)
+
+    } catch (error) {
+        
+    }
+}
+
+export const listcards = (req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}

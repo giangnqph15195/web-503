@@ -3,7 +3,7 @@ const app = express()
 const productsRouter = require('./router/products')
 const categoryRouter = require('./router/category')
 const UserRouter = require('./router/user')
-const CardRouter = require("./router/user")
+const CardRouter = require('./router/card')
 const cors  = require('cors')
 import mongoose from 'mongoose'
 

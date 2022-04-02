@@ -20,7 +20,7 @@
 
 
 import mongoose, {Schema, ObjectId} from "mongoose";
-const cardSchame = new Schema({
+const cartSchame = new  Schema({
     product:{
         type: ObjectId,
         ref:"Product"
@@ -34,4 +34,4 @@ const cardSchame = new Schema({
         required: true
     }
 }, {timestamps: true})
-export default mongoose.model("Card", cardSchame)
+export default mongoose.model("Cart", cartSchame)
