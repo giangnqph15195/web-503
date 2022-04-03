@@ -1,8 +1,17 @@
 import mongoose, {Schema, ObjectId} from "mongoose";
 const cartSchame = new  Schema({
-    product:{
-        type: ObjectId,
-        ref:"Product"
+    name:{
+        type:String,
+        required:true
+    },
+    image:{
+        type:String
+    },
+    price:{
+        type:Number
+    },
+    description:{
+        type:String
     },
     user:{
         type: ObjectId,
@@ -11,6 +20,9 @@ const cartSchame = new  Schema({
     quantiny: {
         type: Number,
         required: true
+    },
+    oder:{
+        type: ObjectId,
     }
 }, {timestamps: true})
 export default mongoose.model("Cart", cartSchame)
