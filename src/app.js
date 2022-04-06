@@ -5,6 +5,7 @@ const categoryRouter = require('./router/category')
 const UserRouter = require('./router/user')
 const CardRouter = require('./router/card')
 const SizeRouter = require('./router/size')
+const OrderRouter = require('./router/order')
 const cors  = require('cors')
 import mongoose from 'mongoose'
 
@@ -17,6 +18,7 @@ app.use("/", categoryRouter)
 app.use("/", UserRouter)
 app.use("/", CardRouter )
 app.use("/", SizeRouter )
+app.use("/", OrderRouter)
 
 
 

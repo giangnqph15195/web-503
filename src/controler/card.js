@@ -1,4 +1,5 @@
 import Card from "../models/card"
+import order from "../models/order"
 // import User from "../models/user"
 import Products from '../models/produts'
 
@@ -23,7 +24,7 @@ export const addcard = async (req,res) => {
 
 export const listcards = async (req, res) => {
     try {
-        const user = await Card.find({user : req.params.user}).exec()
+        const user = await Card.find({user :req.params.user , "order": null}).exec()
         // const products = await Products.find({_id: user}).populate('product').select().exec()
         res.json(user)
     } catch (error) {

@@ -21,8 +21,9 @@ const cartSchame = new  Schema({
         type: Number,
         required: true
     },
-    oder:{
+    order:{
         type: ObjectId,
+        ref:"Order"
     }
 }, {timestamps: true})
 export default mongoose.model("Cart", cartSchame)

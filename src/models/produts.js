@@ -12,6 +12,9 @@ const productSchemna = Schema({
         unique:true,
         index:true
     },
+    image:{
+        type: String
+    },
     price: {
         type: Number,
         required: true,
