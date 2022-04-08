@@ -14,7 +14,8 @@ const OrderShema = new Schema ({
         type:String
     },
     status:{
-        type:Number
+        type:Number,
+        default:0
     }
 }, {timestamps:true})
 

@@ -40,3 +40,12 @@ export const removeCr = async (req, res) =>{
         
     }
 }
+
+export const updateArray = async (req, res) => {
+    try {
+        const user = await Card.updateMany({user :req.params.user , "order": null}, req.body ,{new:true}).exec()
+        res.json(user)
+    } catch (error) {
+        
+    }
+}
