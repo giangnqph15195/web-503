@@ -30,3 +30,7 @@ export const updatenew = async (req, res) => {
     const Updatenew = await Cart.updateOne({user: req.params.user}, Add._id, {new:true}).exec()
     res.json(Updatenew)
 }
+export const updatestatus = async (req, res) => {
+    const Updatestatus = await Order.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).exec()
+    res.json(Updatestatus)
+}

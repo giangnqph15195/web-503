@@ -21,6 +21,10 @@ const cartSchame = new  Schema({
         type: Number,
         required: true
     },
+    size: {
+        type: Number,
+    
+    },
     order:{
         type: ObjectId,
         ref:"Order"
