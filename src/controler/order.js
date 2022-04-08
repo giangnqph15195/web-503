@@ -16,7 +16,7 @@ export const listorder = async (req, res) => {
  }
  export const listdeltail = async (req, res) => {
     const order = await Order.findOne({_id:req.params.id})
-     const cart = await Cart.find({order: order}).populate('order').select('order').exec()
+     const cart = await Cart.find({order: order}).populate('order').select('-order').exec()
      res.json(
         //  order,
          cart

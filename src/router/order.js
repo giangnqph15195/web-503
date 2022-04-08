@@ -3,7 +3,7 @@ const { listorder, addorder, updatecart, updatenew, listdeltail, infodetail } = 
 
 const router = Router()
 
-// router.get("/api/orders", listorder)
+router.get("/api/orders", listorder)
 router.post("/api/order", addorder)
 router.put("/api/order/:user", updatenew)
 router.get("/api/orders/:id", listdeltail)
