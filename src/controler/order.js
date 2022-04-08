@@ -5,6 +5,10 @@ export const listorder = async (req, res) => {
     const Listorder = await Order.find().exec()
     res.json(Listorder)
  }
+ export const listorderweb = async (req, res) => {
+    const Listorders = await Order.find({user: req.params.user}).exec()
+    res.json(Listorders)
+ }
 
  export const addorder = async (req, res) => {
      const Add = await new Order(req.body).save()

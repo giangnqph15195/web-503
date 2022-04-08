@@ -1,4 +1,4 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, {Schema , ObjectId} from "mongoose";
 
 const OrderShema = new Schema ({
     name:{
@@ -12,6 +12,10 @@ const OrderShema = new Schema ({
     },
     note:{
         type:String
+    },
+    user:{
+        type: ObjectId,
+        ref:"User"
     },
     status:{
         type:Number,
