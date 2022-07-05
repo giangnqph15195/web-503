@@ -8,16 +8,21 @@ export const requireSignin = expressJWT({
 export const Auth = (req,res,next) =>{
     console.log(req.auth)
     console.log(req.profile)
-    const user = req.profile._id == req.auth._id;
-    if(!user){
-        return res.status(402).json({
+    const status = req.profile._id == req.auth._id;
+    if(!status){
+        return res.status(400).json({
             message: "Bạn không được phép truy cập"
         })
     }
-    next()
+    next();
     // console.log(req.pro)
 }
 
 export  const Admin = (req, res , next) => {
-
+    if(req.profile.role === 1){
+        res.status(401).json({
+            message: "Bạn không phải là admin"
+        })
+    }
+    next();
 }
